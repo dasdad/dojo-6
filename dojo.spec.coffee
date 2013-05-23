@@ -4,6 +4,8 @@ distance = (origin, destination) ->
 
 	Math.sqrt(distanceX + distanceY)
 
+nearest3 = (myPosition, friendsCoords) ->
+  friendsCoords
 
 
 
@@ -51,3 +53,17 @@ describe 'distance between two points', ->
     origin = {x: 0, y: 0}
     destination = {x: 3, y: 4}
     expect( distance(origin, destination) ).toEqual(5)
+
+describe 'finding 3 nearest friends', ->
+
+  it 'has only 3 friends', ->
+    myPosition = x: 0, y:0
+    friendsCoords = [
+      x: 1, y: 1
+      x: 2, y: 2
+      x: 3, y: 3
+    ]
+
+    result = nearest3 myPosition, friendsCoords
+    expect(result).toEqual friendsCoords
+
