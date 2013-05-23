@@ -1,8 +1,8 @@
 distance = (origin, destination) ->
-	distanceY = origin.y - destination.y
-	distanceX = origin.x - destination.x
+	distanceY = Math.pow((origin.y - destination.y), 2)
+	distanceX = Math.pow((origin.x - destination.x), 2)
 
-	Math.abs(distanceX + distanceY)
+	Math.sqrt(distanceX + distanceY)
 
 
 
@@ -47,3 +47,7 @@ describe 'distance between two points', ->
     destination = {x: 1, y: 0}
     expect( distance(origin, destination) ).toEqual(2)
 
+  it 'is five for x:0,y:0 - x:3, y:4', ->
+    origin = {x: 0, y: 0}
+    destination = {x: 3, y: 4}
+    expect( distance(origin, destination) ).toEqual(5)
