@@ -4,7 +4,7 @@ distance = (origin, destination) ->
 
 	Math.sqrt(distanceX + distanceY)
 
-nearest3 = (myPosition, friendsCoords) ->
+findThreeClosestFriends = (myPosition, friendsCoords) ->
   friendsCoords
 
 
@@ -56,14 +56,19 @@ describe 'distance between two points', ->
 
 describe 'finding 3 nearest friends', ->
 
+  allFriendsCoords = [
+    x: 0,  y: 0
+    x: 0,  y: 1
+    x: 1,  y: 0
+    x: 1,  y: 1
+    x: 5,  y: 5
+    x: -5, y: -5
+  ]
+
   it 'has only 3 friends', ->
     myPosition = x: 0, y:0
-    friendsCoords = [
-      x: 1, y: 1
-      x: 2, y: 2
-      x: 3, y: 3
-    ]
+    friendsCoords = allFriendsCoords[0...3]
 
-    result = nearest3 myPosition, friendsCoords
+    result = findThreeClosestFriends myPosition, friendsCoords
     expect(result).toEqual friendsCoords
 
