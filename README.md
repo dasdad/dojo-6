@@ -53,3 +53,8 @@ Retrospectiva
 * Começou antes
 * Navarro anti-social
 * Conversa paralela
+
+Ambiente
+--------
+
+O ambiente deste Dojo está disponível como uma box do [Vagrant](http://www.vagrantup.com/).
