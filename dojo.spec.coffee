@@ -1,11 +1,11 @@
 distance = (origin, destination) ->
-	distanceY = Math.pow((origin.y - destination.y), 2)
-	distanceX = Math.pow((origin.x - destination.x), 2)
+  distanceY = Math.pow((origin.y - destination.y), 2)
+  distanceX = Math.pow((origin.x - destination.x), 2)
 
-	Math.sqrt(distanceX + distanceY)
+  Math.sqrt(distanceX + distanceY)
 
 findThreeClosestFriends = (friendsCoords, myIndex) ->
-	myCoords = friendsCoords[myIndex]
+  myCoords = friendsCoords[myIndex]
 	answer = f for f in friendsCoords
 	answer.sort (a,b) ->
 		distance(myCoords,b) - distance(myCoords,a)
