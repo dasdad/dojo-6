@@ -6,11 +6,10 @@ distance = (origin, destination) ->
 
 findThreeClosestFriends = (friendsCoords, myIndex) ->
   myCoords = friendsCoords[myIndex]
-	answer = f for f in friendsCoords
-	answer.sort (a,b) ->
-		distance(myCoords,b) - distance(myCoords,a)
+  answer = friendsCoords.slice 0
+  answer.sort (a, b) ->
+    distance(myCoords, a) - distance(myCoords, b)
   answer[1...4]
-  0
 
 
 
@@ -94,10 +93,10 @@ describe 'finding 3 nearest friends', ->
     myIndex = 3
 
     result = findThreeClosestFriends allFriendsCoords, myIndex
-    expect(result).toEqual allFriendsCoords[0..2]
+    expect(result).toContain(allFriendsCoords[i]) for i in [0...3]
 
   it 'i am in house 2', ->
     myIndex = 2
 
     result = findThreeClosestFriends allFriendsCoords, myIndex
-    expect(result).toEqual(allFriendsCoords[i] for i in [0,1,3])
+    expect(result).toContain(allFriendsCoords[i]) for i in [0, 1, 3]
